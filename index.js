@@ -45,14 +45,14 @@ app.post('/', function (request, response) {
     console.log('request: \n' + JSON.stringify(request.body));
     //var item = req.body.result.parameters['item'];
     var object = request.body.queryResult.parameters['object'];
-    var time = request.body.queryResult.parameters['time'];
-    var destination = request.body.queryResult.parameters['destination'];
+    var what = request.body.queryResult.parameters['whay'];
+    var why = request.body.queryResult.parameters['why'];
     
     let action = (request.body.queryResult.action) ? request.body.queryResult.action: 'default';
     
     const actionHandlers = {
         'object.time.destination': () => {
-            let responseToUser = { fulfillmentText: obj[object][time][destination]};
+            let responseToUser = { fulfillmentText: obj[object][what][why]};
             sendResponse(responseToUser);
         },
         
